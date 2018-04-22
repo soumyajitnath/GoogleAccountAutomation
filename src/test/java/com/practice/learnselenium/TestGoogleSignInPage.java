@@ -46,7 +46,7 @@ public class TestGoogleSignInPage {
 	  
 	  signInPage = new GoogleAccountSignInPage(driver);
 	  
-	  //verify if email Text box is present
+	  //Verify if email Text box is present 
 	  String email = "soumyajit443@gmail.com";
 	  
 	  signInPage.setEmailAddress(email);
