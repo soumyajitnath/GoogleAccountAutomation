@@ -4,12 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.practice.learnselenium.Constants;
 
 public class GoogleAccountSignInPage {
 	
-	WebDriver driver;
+    public WebDriver driver;
+	public WebDriverWait wait;
 	
 	@FindBy(xpath = Constants.emailTextBox)
 	public WebElement emailTextBox;
@@ -20,8 +22,15 @@ public class GoogleAccountSignInPage {
 	@FindBy(xpath = Constants.nextButton)
 	public WebElement nextButton;
 	
+	@FindBy(name = Constants.passwordTextBox)
+	public WebElement passwordTextBox;
+	
+	@FindBy(xpath = Constants.incorrectPwdErrMsg)
+	public WebElement incorrectPwdErrorMsg;
+	
 	public GoogleAccountSignInPage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, 30);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -73,6 +82,26 @@ public class GoogleAccountSignInPage {
 		return true;
 	}
 	
+	public void setPassword(String value)
+	{
+		if(passwordTextBox.isDisplayed())
+			passwordTextBox.sendKeys("rinku_09");
+	}
+	
+	public void clickNextBtn(){
+		if(nextButton.isEnabled())
+			nextButton.click();
+		System.out.println("Clicked on 'Next' button");
+	}
+	
+	public boolean isIncorrectPwdErrorMsgDisplayed()
+	{
+		return incorrectPwdErrorMsg.isDisplayed();
+	}
+	public String getIncorrectPwdErrorMsg()
+	{
+		return incorrectPwdErrorMsg.getText();
+	}
 	
 	
 

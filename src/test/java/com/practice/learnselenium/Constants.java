@@ -9,6 +9,7 @@ public class Constants {
 	  public static final String emailTextBox = "//input[@type='email']";
 	  public static final String createAccountLink = "//span[text()='Create account']";
 	  public static final String nextButton = "//span[text()='Next']";
-	  
+	  public static final String passwordTextBox = "password";//name
+	  public static final String incorrectPwdErrMsg = "//div[@jsname='B34EJ'][contains(text(),'Wrong')]";//xpath
 
 }

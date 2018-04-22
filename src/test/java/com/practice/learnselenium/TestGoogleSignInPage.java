@@ -12,8 +12,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
@@ -23,22 +27,27 @@ public class TestGoogleSignInPage {
 	
   WebDriver driver;
   
+  
   GoogleAccountSignInPage signInPage;
   
-  @BeforeTest
+  @SuppressWarnings("deprecation")
+@BeforeTest
   public void beforeTest() {
 	  //create Driver
 	  /*System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") +  "\\src\\main\\resources\\geckodriver.exe");
 	  driver = new FirefoxDriver();*/
-	  
 	  System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +  "\\src\\main\\resources\\chromedriver.exe");
-	  driver = new ChromeDriver();
+	  
+	  ChromeOptions options = new ChromeOptions();
+	  options.addArguments("--incognito");
+	  DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	  capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+	  driver = new ChromeDriver(capabilities);
   }
   
   @BeforeClass
   public void beforeClass() {
-	  driver.get(Constants.url);
-	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  System.out.println("Before Class executed once");
   }
   
   @Test
@@ -54,7 +63,26 @@ public class TestGoogleSignInPage {
 			  signInPage.emailTextBox.getAttribute("data-initial-value").equals(email),
 			  "Failed since Actual email = " + signInPage.emailTextBox.getAttribute("data-initial-value")
 			  + " and Expected email = " + email);
-	  //
+	  //Click on Next button
+	  signInPage.clickNextBtn();
+	  WebDriverWait wait = new WebDriverWait(driver, 30);
+	  wait.until(ExpectedConditions.visibilityOf(signInPage.passwordTextBox));
+	  
+	  //Enter the password
+	  String password = "0601212444";
+	  signInPage.setPassword(password);
+	  
+	  //Click on Next Button
+	  signInPage.clickNextBtn();
+	  
+	  //Verify the error message
+	  Assert.assertTrue(signInPage.isIncorrectPwdErrorMsgDisplayed(), "Error message should get displayed for incorrect password entered");
+	  
+	  String expectedErrorMsg = "Wrong password. Try again or click Forgot password to reset it.";
+	  Assert.assertEquals(signInPage.getIncorrectPwdErrorMsg(), expectedErrorMsg, "Actual Error message = " + signInPage.getIncorrectPwdErrorMsg() 
+	  + "which do not get displayed for incorrect password");
+	  
+	  
   }
   
   @Test
@@ -70,12 +98,15 @@ public class TestGoogleSignInPage {
 	  
 	  System.out.println("Before Method of Test method executed");
 	  
+	  driver.get(Constants.url);
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   @AfterMethod
   public void afterMethod() {
 	  
 	  System.out.println("After Method of Test method executed");
+	  //driver.close();
   }
 
   
@@ -83,7 +114,7 @@ public class TestGoogleSignInPage {
   @AfterClass
   public void afterClass() {
 	  System.out.println("After Class method executed");
-	  driver.close();
+	  
   }
 
   
