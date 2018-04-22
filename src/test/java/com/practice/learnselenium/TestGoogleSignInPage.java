@@ -54,7 +54,7 @@ public class TestGoogleSignInPage {
 			  signInPage.emailTextBox.getAttribute("data-initial-value").equals(email),
 			  "Failed since Actual email = " + signInPage.emailTextBox.getAttribute("data-initial-value")
 			  + " and Expected email = " + email);
-	  
+	  //
   }
   
   @Test
