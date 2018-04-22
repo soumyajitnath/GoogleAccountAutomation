@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="254889" started-at="2018-04-22T11:15:24Z" finished-at="2018-04-22T11:19:39Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="254889" started-at="2018-04-22T11:15:24Z" finished-at="2018-04-22T11:19:39Z">
+      <class name="com.practice.learnselenium.TestGoogleSignInPage">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="beforeTest" is-config="true" duration-ms="5064" started-at="2018-04-22T11:15:24Z" finished-at="2018-04-22T11:15:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="beforeClass" is-config="true" duration-ms="3799" started-at="2018-04-22T11:15:29Z" finished-at="2018-04-22T11:15:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="signInToYourGoogleAccount()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="signInToYourGoogleAccount" duration-ms="116313" started-at="2018-04-22T11:15:33Z" finished-at="2018-04-22T11:17:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signInToYourGoogleAccount -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2018-04-22T11:15:33Z" finished-at="2018-04-22T11:15:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="afterMethod" is-config="true" duration-ms="43" started-at="2018-04-22T11:17:39Z" finished-at="2018-04-22T11:17:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="beforeMethod" is-config="true" duration-ms="11" started-at="2018-04-22T11:19:06Z" finished-at="2018-04-22T11:19:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="verifyElementsOnSignInPage()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="verifyElementsOnSignInPage" duration-ms="8300" started-at="2018-04-22T11:19:06Z" finished-at="2018-04-22T11:19:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyElementsOnSignInPage -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="afterMethod" is-config="true" duration-ms="12" started-at="2018-04-22T11:19:14Z" finished-at="2018-04-22T11:19:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="afterClass" is-config="true" duration-ms="2404" started-at="2018-04-22T11:19:19Z" finished-at="2018-04-22T11:19:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.practice.learnselenium.TestGoogleSignInPage@192d43ce]" name="afterTest" is-config="true" duration-ms="678" started-at="2018-04-22T11:19:38Z" finished-at="2018-04-22T11:19:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.practice.learnselenium.TestGoogleSignInPage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
